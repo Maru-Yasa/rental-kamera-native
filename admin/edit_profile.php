@@ -31,7 +31,7 @@ $user = User::getById($_GET['id']);
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-5 shadow p-3">
-                    <h3 class="text-primary mb-2"> <i class="bi bi-person-fill"></i> Update Profile</h3>
+                    <h3 class="text-dark mb-2"> <i class="bi bi-person-fill"></i> Update Profile</h3>
                     <form class="form" action="" method="POST">
                         <input type="text" name="id" value="<?= $user['id'] ?>" hidden>
                         <div class="mb-3">
@@ -42,7 +42,7 @@ $user = User::getById($_GET['id']);
                             <label for="exampleInputEmail1" class="form-label">Password</label>
                             <input value="<?= $user['password'] ?>" name="password" type="password" class="form-control" id="exampleInputEmail1">
                         </div>
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Edit</button>
+                        <button type="submit" class="btn btn-dark"><i class="bi bi-pencil-fill"></i> Edit</button>
                         <a href="/admin" class="btn btn-danger">cancel</a>
                     </form>
                 </div>

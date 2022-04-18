@@ -20,10 +20,10 @@ $index = 1;
             <?php require_once('../src/components/sidebar.php'); ?>
             <div class="col-sm p-3 min-vh-100 row justify-content-center">
                 <div class="col-10 mt-5">
-                    <h1 class="text-primary">Karyawan</h1>
-                    <a class="btn btn-sm btn-primary" href="/admin/user/create.php">Create <i class="bi bi-plus"></i></a>
+                    <h1 class="text-dark">Karyawan</h1>
+                    <a class="btn btn-sm btn-dark" href="/admin/user/create.php">Create <i class="bi bi-plus"></i></a>
                     <table id="orderTable" class="table table-stripped">
-                            <thead class="bg-primary text-white">
+                            <thead class="bg-dark text-white">
                                 <tr>
                                     <td>No</td>
                                     <td>Username</td>
@@ -40,7 +40,7 @@ $index = 1;
                                         <td><?= $value['role'] ?></td>
                                         <td>
                                             <a href="/admin/user/delete.php?id=<?= $value['id'] ?>" class="btn btn-sm btn-danger"> <i class="bi bi-trash-fill"></i></a>
-                                            <a href="/admin/user/edit.php?id=<?= $value['id']?>" class="btn btn-sm btn-primary"> <i class="bi bi-pencil-fill"></i></a>
+                                            <a href="/admin/user/edit.php?id=<?= $value['id']?>" class="btn btn-sm btn-dark"> <i class="bi bi-pencil-fill"></i></a>
                                         </td>
                                     </tr>
                                     <?php $index++ ?>

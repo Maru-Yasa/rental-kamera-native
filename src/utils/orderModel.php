@@ -25,10 +25,10 @@ class Order {
         $db = new Conn();
         $nama_customer = $data['nama_customer'];
         $alamat = $data['alamat'];
-        $id_device = $data['id_device'];
-        $id_user = $data['id_user'];
+        $id_kamera = $data['id_kamera'];
+        $id_user = $data['id_karyawan'];
         $tanggal_kembali = $data['tanggal_kembali'];
-        $sql = "INSERT INTO `transaksi` (`id`, `nama_customer`, `alamat`, `id_device`, `id_user`, `tanggal_pinjam`, `tanggal_kembali`) VALUES (NULL, '$nama_customer', '$alamat', '$id_device', '$id_user', current_timestamp(), '$tanggal_kembali');";
+        $sql = "INSERT INTO `transaksi` (`id`, `nama_customer`, `alamat`, `id_kamera`, `id_karyawan`, `total`, `tanggal_pinjam`, `tanggal_kembali`) VALUES (NULL, '$nama_customer', '$alamat', '$id_kamera', '$id_user', NULL, current_timestamp(), '$tanggal_kembali');";
         return $db->assoc($sql);
     }
 

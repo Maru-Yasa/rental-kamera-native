@@ -13,13 +13,13 @@ if (isset($_POST['nama_customer'])) {
     $newOrder = [
         "nama_customer" => $post['nama_customer'],
         "alamat" => $post['alamat'], 
-        "id_device" => $post['id_device'],
-        "id_user" => $_SESSION['user']['id'],
+        "id_kamera" => $post['id_kamera'],
+        "id_karyawan" => $_SESSION['user']['id'],
         "tanggal_kembali" => $post['tanggal_kembali']
     ];
     Order::create($newOrder);
     Device::update([
-        'id' => $newOrder['id_device'],
+        'id' => $newOrder['id_kamera'],
         'is_avaible' => 0,
     ]);
     Common::redirect('../orders.php');
@@ -38,7 +38,7 @@ $devices = Device::getAvaible();
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-5 shadow p-3">
-                <h3 class="text-primary">Create Order</h3>
+                <h3 class="text-dark">Create Order</h3>
                 <form class="form" action="" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Customer</label>
@@ -49,7 +49,7 @@ $devices = Device::getAvaible();
                         <input require name="alamat" type="text" class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="mb-3">
-                        <select class="form-select mb-3" aria-label=".form-select-lg" name="id_device">
+                        <select class="form-select mb-3" aria-label=".form-select-lg" name="id_kamera">
                             <option selected>Pilih Device yang tersedia</option>
                             <?php foreach ($devices as $key => $value) { ?>
                                 <option value="<?= $value['id'] ?>"> <?= $value['nama'] ?> </option>
@@ -60,7 +60,7 @@ $devices = Device::getAvaible();
                         <label for="exampleInputEmail1" class="form-label">tanggal Kembali</label>
                         <input require name="tanggal_kembali" type="date" class="form-control" id="exampleInputEmail1">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-dark">Submit</button>
                     <a class="btn btn-danger" href="/admin/orders.php">Back</a>
                 </form>
             </div>

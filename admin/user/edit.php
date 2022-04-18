@@ -34,7 +34,7 @@ if (isset($_POST['id'])) {
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-5 shadow p-3">
-                <h3 class="text-primary">Create Order</h3>
+                <h3 class="text-dark">Create Order</h3>
                 <form class="form" action="" method="POST">
                     <input type="text" name="id" value="<?= $user['id'] ?>" hidden>
                     <div class="mb-3">
@@ -52,7 +52,7 @@ if (isset($_POST['id'])) {
                             <option value="karyawan">Karyawan</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-dark">Submit</button>
                     <a class="btn btn-danger" href="/admin/users.php">Back</a>
                 </form>
             </div>

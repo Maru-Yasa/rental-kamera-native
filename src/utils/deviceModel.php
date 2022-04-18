@@ -11,29 +11,29 @@ class Device {
     static function all()
     {
         $db = new Conn();
-        return $db->assoc("SELECT * FROM device")->fetchAll();
+        return $db->assoc("SELECT * FROM kamera")->fetchAll();
     }
 
     static function getAvaible()
     {
         $db = new Conn();
-        return $db->assoc("SELECT * FROM device WHERE `is_avaible` = 1")->fetchAll();
+        return $db->assoc("SELECT * FROM kamera WHERE `is_avaible` = 1")->fetchAll();
     }
 
     static function getById($id)
     {
         $db = new Conn();
-        return $db->assoc("SELECT * FROM device WHERE id=$id")->fetch();
+        return $db->assoc("SELECT * FROM kamera WHERE id=$id")->fetch();
     }
 
     static function create($data)
     {
         $db = new Conn();
         $nama = $data['nama'];
-        $memory = $data['memory'];
+        $harga = (int) $data['harga'];
         $img = $data['img'];
         $is_avaible = 1;
-        $sql = "INSERT INTO `device` (`id`, `nama`, `memory`, `img`, `is_avaible`) VALUES (NULL, '$nama', '$memory', '$img', '$is_avaible');";
+        $sql = "INSERT INTO `kamera` (`id`, `nama`, `harga`, `img`, `is_avaible`) VALUES (NULL, '$nama', '$harga', '$img', '$is_avaible');";
         return $db->assoc($sql);
     }
 
@@ -45,7 +45,7 @@ class Device {
         var_dump($data);
         foreach ($data as $key => $value) {
             if($value !== null){
-                $sql = "UPDATE `device` SET `$key` = '$value' WHERE `device`.`id` = '$id '";
+                $sql = "UPDATE `kamera` SET `$key` = '$value' WHERE `kamera`.`id` = '$id'";
                 $stmt = $db->prepare($sql);
                 $stmt->execute();
             }
@@ -55,7 +55,7 @@ class Device {
     static function delete($id)
     {
         $db = new Conn();
-        $sql = "DELETE FROM `device` WHERE `device`.`id` = $id ";
+        $sql = "DELETE FROM `kamera` WHERE `kamera`.`id` = $id ";
         $db->assoc($sql);
     }
 

@@ -19,17 +19,17 @@ if (isset($_POST['id'])) {
         "id" => $post['id'],
         "nama_customer" => $post['nama_customer'],
         "alamat" => $post['alamat'], 
-        "id_device" => $post['id_device'],
+        "id_kamera" => $post['id_kamera'],
         "tanggal_pinjam" => $post['tanggal_pinjam'],
         "tanggal_kembali" => $post['tanggal_kembali']
     ];
     Device::update([
-        'id' => $order['id_device'],
+        'id' => $order['id_kamera'],
         'is_avaible' => 1
     ]);
     Order::update($newOrder);
     Device::update([
-        'id' => $newOrder['id_device'],
+        'id' => $newOrder['id_kamera'],
         'is_avaible' => 0
     ]);
     Common::redirect('../orders.php');
@@ -59,7 +59,7 @@ $devices = Device::getAvaible();
                         <input value="<?= $order['alamat'] ?>" name="alamat" type="text" class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="mb-3">
-                        <select class="form-select" aria-label=".form-select-lg" name="id_device">
+                        <select class="form-select" aria-label=".form-select-lg" name="id_kamera">
                                 <option selected>Pilih Device yang tersedia</option>
                                 <?php foreach ($devices as $key => $value) { ?>
                                     <option value="<?= $value['id'] ?>"> <?= $value['nama'] ?> </option>
@@ -74,7 +74,7 @@ $devices = Device::getAvaible();
                         <label for="exampleInputEmail1" class="form-label">tanggal Kembali</label>
                         <input value="<?= $order['tanggal_kembali'] ?>" name="tanggal_kembali" type="date" class="form-control" id="exampleInputEmail1">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-dark">Submit</button>
                     <a href="/admin/orders.php" class="btn btn-danger">cancel</a>
                 </form>
             </div>

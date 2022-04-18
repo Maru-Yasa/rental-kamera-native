@@ -19,16 +19,16 @@ $index = 1;
             <?php require_once('../src/components/sidebar.php'); ?>
             <div class="col-sm p-3 min-vh-100 row justify-content-center">
             <div class="col-10 mt-5">
-                    <h1 class="text-primary">Devices</h1>
-                    <a class="btn btn-sm btn-primary" href="/admin/device/create.php">Create <i class="bi bi-plus"></i></a>
+                    <h1 class="text-dark">Kamera</h1>
+                    <a class="btn btn-sm btn-dark" href="/admin/device/create.php">Create <i class="bi bi-plus"></i></a>
                     <table id="deviceTable" class="table table-stripped">
-                            <thead class="bg-primary text-white">
+                            <thead class="bg-dark text-white">
                                 <tr>
                                     <td>No</td>
                                     <td>Nama</td>
-                                    <td>Memory</td>
-                                    <td>Status</td>
+                                    <td>Harga per hari</td>
                                     <td>Image</td>
+                                    <td>Status</td>
                                     <td>Action</td>
                                 </tr>
                             </thead>
@@ -38,7 +38,7 @@ $index = 1;
                                     <tr>
                                         <td><?= $index ?></td>
                                         <td><?= $value['nama'] ?></td>
-                                        <td><?= $value['memory'] ?></td>
+                                        <td>Rp <?= $value['harga'] ?></td>
                                         <td><img src="<?= $value['img'] ?>" alt="" style="width: 100px;"></td>
                                         <td>
                                             <?php if ($value['is_avaible'] === 1) { ?>
@@ -49,7 +49,7 @@ $index = 1;
                                         </td>
                                         <td>
                                             <a href="/admin/device/delete.php?id=<?= $value['id'] ?>" class="btn btn-sm btn-danger"> <i class="bi bi-trash-fill"></i></a>
-                                            <a href="/admin/device/edit.php?id=<?= $value['id']?>" class="btn btn-sm btn-primary"> <i class="bi bi-pencil-fill"></i></a>
+                                            <a href="/admin/device/edit.php?id=<?= $value['id']?>" class="btn btn-sm btn-dark"> <i class="bi bi-pencil-fill"></i></a>
                                         </td>
                                     </tr>
 

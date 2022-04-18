@@ -30,7 +30,7 @@ if (isset($_POST['username'])) {
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-5 shadow p-3">
-                <h3 class="text-primary">Create Order</h3>
+                <h3 class="text-dark">Create Order</h3>
                 <form class="form" action="" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Username</label>
@@ -47,7 +47,7 @@ if (isset($_POST['username'])) {
                             <option value="karyawan">Karyawan</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-dark">Submit</button>
                     <a class="btn btn-danger" href="/admin/users.php">Back</a>
                 </form>
             </div>

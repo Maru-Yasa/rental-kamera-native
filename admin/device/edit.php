@@ -18,7 +18,8 @@ if (isset($_POST['nama'])) {
         $newDevice = [
             "id" => $post['id'],
             "nama" => $post['nama'],
-            "memory" => $post['memory'], 
+            'is_avaible' => $post['is_avaible'],
+            "harga" => $post['harga'], 
         ];
         var_dump($newDevice);    
         Device::update($newDevice);
@@ -33,7 +34,8 @@ if (isset($_POST['nama'])) {
     $newDevice = [
         "id" => $post['id'],
         "nama" => $post['nama'],
-        "memory" => $post['memory'], 
+        "harga" => $post['harga'], 
+        'is_avaible' => $post['is_avaible'],
         "img" => "/public/uploads/$newImageName",
     ];
     Device::update($newDevice);
@@ -54,18 +56,32 @@ if (isset($_POST['nama'])) {
                 <form class="form" action="" method="POST" enctype="multipart/form-data">
                     <input type="text" name="id" value="<?= $device['id'] ?>" hidden>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nama Customer</label>
+                        <label for="exampleInputEmail1" class="form-label">Nama</label>
                         <input value="<?= $device['nama'] ?>" name="nama" type="text" class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nama Customer</label>
-                        <input value="<?= $device['memory'] ?>" name="memory" type="number" class="form-control" id="exampleInputEmail1">
+                        <label for="exampleInputEmail1" class="form-label">Harga</label>
+                        <input value="<?= $device['harga'] ?>" name="harga" type="number" class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nama Customer</label>
+                        <select name="is_avaible" class="form-select">
+                            <option value="<?= $device['is_avaible']?>" selected>
+                            <?php if ($device['is_avaible'] === 1) { ?>
+                                                <span>Tersedia</span>
+                                            <?php }else{ ?>
+                                                <span>Tidak tersedia</span>
+                             <?php } ?>
+                            </option>
+                            <option value="0">Tidak tersedia</option>
+                            <option value="1">Tersedia</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Image</label>
                         <input value="" name="img" type="file" class="form-control" id="exampleInputEmail1">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <a href="/admin/devices.php" class="btn btn-danger">cancel</a>
                 </form>
             </div>
         </div>

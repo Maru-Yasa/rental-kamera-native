@@ -50,7 +50,7 @@ if (isset($_POST['username'])) {
                             <input required name="password" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary"> <i class="bi bi-box-arrow-right"></i> Login</button>
+                            <button type="submit" class="btn btn-dark"> <i class="bi bi-box-arrow-right"></i> Login</button>
                         </div>
                     </form>
                 </div>
