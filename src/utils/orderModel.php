@@ -1,6 +1,6 @@
 <?php 
 require_once('conn.php');
-
+require_once('common.php');
 class Order {
 
     public function __construct()
@@ -44,8 +44,7 @@ class Order {
             }
         }
         $sql = rtrim($sql, ",");
-        $sql .= " WHERE `id`=$id";
-        var_dump($sql);
+        $sql .= " WHERE `id`='$id'";
         $db->assoc($sql);   
     }
 

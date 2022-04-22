@@ -4,9 +4,12 @@ session_start();
 require_once('src/utils/userModel.php');
 require_once('src/utils/common.php');
 
-if($_SESSION['isAuthenticated'] === true){
-    Common::redirect('/admin');
+if(isset($_SESSION['isAuthentication'])){
+    if($_SESSION['isAuthenticated'] === true){
+        Common::redirect('/admin');
+    }
 }
+
 
 $msg = "";
 if (isset($_POST['username'])) {

@@ -60,7 +60,7 @@ $devices = Device::getAvaible();
                     </div>
                     <div class="mb-3">
                         <select class="form-select" aria-label=".form-select-lg" name="id_kamera">
-                                <option selected>Pilih Device yang tersedia</option>
+                                <option selected value="<?= $order['id'] ?>"><?= Device::getById($order['id_kamera'])['nama'] ?></option>
                                 <?php foreach ($devices as $key => $value) { ?>
                                     <option value="<?= $value['id'] ?>"> <?= $value['nama'] ?> </option>
                                 <?php } ?>
